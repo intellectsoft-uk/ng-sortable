@@ -599,7 +599,7 @@
             $helper.movePosition(eventObj, dragElement, itemPosition);
 
             scope.sortableScope.$apply(function () {
-              scope.callbacks.dragStart(dragItemInfo.eventArgs());
+              scope.sortableScope.callbacks.dragStart(dragItemInfo.eventArgs());
             });
             bindEvents();
           };
@@ -802,14 +802,14 @@
               scope.sortableScope.$apply(function () {
                 if (dragItemInfo.isSameParent()) {
                   if (dragItemInfo.isOrderChanged()) {
-                    scope.callbacks.orderChanged(dragItemInfo.eventArgs());
+                    scope.sortableScope.callbacks.orderChanged(dragItemInfo.eventArgs());
                   }
                 } else {
-                  scope.callbacks.itemMoved(dragItemInfo.eventArgs());
+                  scope.sortableScope.callbacks.itemMoved(dragItemInfo.eventArgs());
                 }
               });
               scope.sortableScope.$apply(function () {
-                scope.callbacks.dragEnd(dragItemInfo.eventArgs());
+                scope.sortableScope.callbacks.dragEnd(dragItemInfo.eventArgs());
               });
               dragItemInfo = null;
             }
@@ -832,7 +832,7 @@
               //rollback all the changes.
               rollbackDragChanges();
               scope.sortableScope.$apply(function () {
-                scope.callbacks.dragCancel(dragItemInfo.eventArgs());
+                scope.sortableScope.callbacks.dragCancel(dragItemInfo.eventArgs());
               });
               dragItemInfo = null;
             }
